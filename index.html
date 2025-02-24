@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MelodiQ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-1.css">
+    <script src="https://kit.fontawesome.com/96c42365b1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="content">
+                <div class="logo">
+                    <img src="images/logo6.png" alt="Music">
+                    <span>MelodiQ</span>
+                </div>
+    
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search for music...">
+                    <button onclick="searchMusic()">Search</button>
+                </div>
+            </div>
+            <!-- <div class="music-list" id="musicList"></div> -->
+
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i id="check-btn" class="fa-solid fa-bars"></i>
+            </label>
+
+            <ul class="nav-links" id="nav-links">
+                <li>
+                    <a id="home" class="nav-link" onclick="homes()">Home</a>
+                    <a id="playlist" class="nav-link" onclick="playlists()">Playlist</a>
+                    <!-- <a id="podcast" class="nav-link" onclick="podcastss()">Discover</a> -->
+                    <a id="artist" class="nav-link" onclick="artists()">Artist</a>
+                    <a id="login" class="nav-link" onclick="logins()">Log In</a>
+                    <!-- <a id="signup" class="nav-link" onclick="signup()">Sign UP</a> -->
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Search Musics List -->
+        <div class="music-list" id="musicList"></div>
+
+        <!-- Songs in Slide  -->
+        <div class="slider-container">
+            <span class="prev" onclick="prevImage()"><i class="fa-solid fa-angle-left"></i></span>
+            <div class="slider" id="imageContainer">
+                <img src="images/slide1.jpg" class="slide active" alt="Image 1">
+                <img src="images/slide2.jpg" class="slide" alt="Image 2">
+                <img src="images/slide3.jpg" class="slide" alt="Image 3">
+                <img src="images/slide4.jpg" class="slide" alt="Image 4">
+                <img src="images/slide5.jpg" class="slide" alt="Image 5">
+                <img src="images/slide6.jpg" class="slide" alt="Image 6">
+                <img src="images/slide7.jpg" class="slide" alt="Image 7">
+                <!-- <img src="images/slide8.jpg" class="slide" alt="Image 8"> -->
+            </div>
+            <span class="next" onclick="nextImage()"><i class="fa-solid fa-angle-right"></i></span>
+        </div>
+
+        <!-- Trending Now -->
+        <div class="songList" id="songList1">
+            <h2>Trending Now</h2>
+            <div class="allSongs">
+                <div class="song" data-src="songs/song-1.mp3" data-title="Jaane Tu" data-singer="Arijit Singh" data-img="images/cover-1.jpg">
+                    <img src="images/cover-1.jpg" alt="Song-Poster" class="cover">
+                    <p class="Title">Jaane Tu</p>
+                    <p>Arijit Singh</p>
+                    <img src="images/play.png" alt="" class="play">
+
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song-2.mp3" data-title="Rooh" data-singer="Honey Singh" data-img="images/cover-2.jpg">
+                    <img src="images/cover-2.jpg" alt="" class="cover">
+                    <p class="Title">Rooh</p>
+                    <p>Yo Yo Honey Singh</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song-3.mp3" data-title="Maaye" data-singer="Sky Force" data-img="images/cover-3.jpg">
+                    <img src="images/cover-3.jpg" alt="" class="cover">
+                    <p class="Title">Maaye</p>
+                    <p>Sky Force</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song-4.mp3" data-title="Aaj Ki Raat" data-singer="Stree" data-img="images/cover-4.jpg">
+                    <img src="images/cover-4.jpg" alt="" class="cover">
+                    <p class="Title">Aaj Ki Raat</p>
+                    <p>Stree</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song-5.mp3" data-title="Kanna Wich Walliyan" data-singer="Yo Yo Honey Singh" data-img="images/cover-5.jpg">
+                    <img src="images/cover-5.jpg" alt="" class="cover">
+                    <p class="Title">Kanna Wich Walliyan</p>
+                    <p>Yo Yo Honey Singh</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song-6.mp3" data-title="Jhol" data-singer="Coke Studios" data-img="images/cover-6.jpg">
+                    <img src="images/cover-6.jpg" alt="Song-Poster" class="cover">
+                    <p class="Title">Jhol</p>
+                    <p>Coke Studios</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song-7.mp3" data-title="Akhiyaan Gulaab" data-singer="Mitraz" data-img="images/cover-7.jpg">
+                    <img src="images/cover-7.jpg" alt="" class="cover">
+                    <p class="Title">Akhiyaan Gulaab</p>
+                    <p>Mitraz</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song-8.mp3" data-title="Naina" data-singer="Holiday" data-img="images/cover-8.jpg">
+                    <img src="images/cover-8.jpg" alt="" class="cover">
+                    <p class="Title">Naina</p>
+                    <p>Holiday</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+            </div>
+        </div>
+
+        <!-- New Releases -->
+        <div class="songList" id="songList2">
+            <h2>New Releases</h2>
+            <div class="allSongs">
+                <div class="song" data-src="songs/song-9.mp3" data-title="Fell For You" data-singer="Shubh" data-img="images/cover-9.jpg">
+                    <img src="images/cover-9.jpg" alt="Song-Poster" class="cover">
+                    <p class="Title">Fell For You</p>
+                    <p>Shubh</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song10.mp3" data-title="Antitode" data-singer="Karan Aujla" data-img="images/cover-10.jpg">
+                    <img src="images/cover-10.jpg" alt="" class="cover">
+                    <p class="Title">Antitode</p>
+                    <p>Karan Aujla</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song11.mp3" data-title="Hass Hass" data-singer="Diljit Dosanjh" data-img="images/cover11.jpg">
+                    <img src="images/cover11.jpg" alt="" class="cover">
+                    <p class="Title">Hass Hass</p>
+                    <p>Diljit Dosanjh</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song12.mp3" data-title="Tell Me Honestly" data-singer="Amy Virk" data-img="images/cover12.jpg">
+                    <img src="images/cover12.jpg" alt="" class="cover">
+                    <p class="Title">Tell Me Honestly</p>
+                    <p>Amy Virk</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song13.mp3" data-title="Sorry" data-singer="Mankirt Aualakh" data-img="images/cover13.jpg">
+                    <img src="images/cover13.jpg" alt="" class="cover">
+                    <p class="Title">Sorry</p>
+                    <p>Mankirt Aualakh</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song14.mp3" data-title="Laavan" data-singer="Jasmin Sandals" data-img="images/cover14.jpg">
+                    <img src="images/cover14.jpg" alt="Song-Poster" class="cover">
+                    <p class="Title">Laavan</p>
+                    <p>Jasmine Sandlas</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song15.mp3" data-title="Feem" data-singer="Jasmine Sandlas" data-img="images/cover15.jpg">
+                    <img src="images/cover15.jpg" alt="" class="cover">
+                    <p class="Title">Feem</p>
+                    <p>Jasmine Sandlas</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song16.mp3" data-title="OFF Limits" data-singer="Parmish Verma" data-img="images/cover16.jpg">
+                    <img src="images/cover16.jpg" alt="" class="cover">
+                    <p class="Title">OFF Limits</p>
+                    <p>Parmish Verma</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Trending Podcasts-->
+        <div class="songList" id="songList3">
+            <h2>Trending Podcasts</h2>
+            <div class="allSongs">
+                <div class="song" data-src="songs/song17.mp3" data-title="Safari" data-singer="Sarena" data-img="images/cover17.jpg">
+                    <img src="images/cover17.jpg" alt="Song-Poster" class="cover">
+                    <p class="Title">Safari</p>
+                    <p>Sarena</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song18.mp3" data-title="Paro Nej" data-singer="Paro Nej" data-img="images/cover18.jpg">
+                    <img src="images/cover18.jpg" alt="" class="cover">
+                    <p class="Title">Pari Nej</p>
+                    <p>Paro Nej</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song19.mp3" data-title="Your Power" data-singer="Billie Eilish" data-img="images/cover19.jpg">
+                    <img src="images/cover19.jpg" alt="" class="cover">
+                    <p class="Title">Your Power</p>
+                    <p>Billie Eilish</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song20.mp3" data-title="On My Way" data-singer="Allen Walker" data-img="images/cover20.jpg">
+                    <img src="images/cover20.jpg" alt="" class="cover">
+                    <p class="Title">On My Way</p>
+                    <p>Allen Walker</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song21.mp3" data-title="Electric" data-singer="Katy Perry" data-img="images/cover21.jpg">
+                    <img src="images/cover21.jpg" alt="" class="cover">
+                    <p class="Title">Electric</p>
+                    <p>Katy Perry</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song22.mp3" data-title="Bad Boy" data-singer="Young Thug" data-img="images/cover22.jpg">
+                    <img src="images/cover22.jpg" alt="Song-Poster" class="cover">
+                    <p class="Title">Bad Boy</p>
+                    <p>Young Thug</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song24.mp3" data-title="Summertime-Sadness" data-singer="Lana DelRey" data-img="images/cover24.jpg">
+                    <img src="images/cover24.jpg" alt="" class="cover">
+                    <p class="Title">Summertime-Sadness</p>
+                    <p>Lana DelRey</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/song23.mp3" data-title="Play Date" data-singer="Lana DelRey" data-img="images/cover23.jpg">
+                    <img src="images/cover23.jpg" alt="" class="cover">
+                    <p class="Title">Play Date</p>
+                    <p>Lilly Brooks</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+            </div>
+        </div>
+
+        <!-- Trending Podcasts -->
+        <div class="songList" id="songList4">
+            <h2>Trending Podcasts</h2>
+            <div class="allSongs">
+                <div class="song" data-src="songs/podcast1.mp3" data-title="Learn Like a Pro" data-singer="DR. Barbara Oakley" data-img="images/picture1.jpg">
+                    <img src="images/picture1.jpg" alt="Song-Poster" class="cover" >
+                    <p class="Title">Learn Like a Pro</p>
+                    <p>DR. Barbara Oakley</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/podcast2.mp3" data-title="Design Your Future" data-singer="Dominick Quartuccio" data-img="images/picture2.jpg">
+                    <img src="images/picture2.jpg" alt="" class="cover">
+                    <p class="Title">Design Your Future</p>
+                    <p>Dominick Quartuccio</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/podcast3.mp3" data-title="Millionaire Success Habits" data-singer="Dean Graziosi" data-img="images/picture3.jpg">
+                    <img src="images/picture3.jpg" alt="" class="cover">
+                    <p class="Title">Millionaire Success Habits</p>
+                    <p>Dean Graziosi</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/podcast4.mp3" data-title="8 Secrets To Powerful Manifesting" data-singer="Mandy Morris" data-img="images/picture4.jpg">
+                    <img src="images/picture4.jpg" alt="" class="cover">
+                    <p class="Title">8 Secrets To Powerful Manifesting</p>
+                    <p>Mandy Morris</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/podcast5.mp3" data-title="Words Can Change Your Life" data-singer="Andrew Newberg" data-img="images/picture5.jpg">
+                    <img src="images/picture5.jpg" alt="" class="cover">
+                    <p class="Title">Words Can Change Your Life</p>
+                    <p>Andrew Newberg</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/podcast6.mp3" data-title="The Millionaire Next Door" data-singer="Ximena Vengoechea" data-img="images/pic6.jpg">
+                    <img src="images/pic6.jpg" alt="Song-Poster" class="cover">
+                    <p class="Title">The Millionaire Next Door</p>
+                    <p>Thomas J. Stanley</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/podcast7.mp3" data-title="Successful Time Management" data-singer="Patrick Forsyth" data-img="images/picture7.jpg">
+                    <img src="images/picture7.jpg" alt="" class="cover">
+                    <p class="Title">Successful Time Management</p>
+                    <p>Patrick Forsyth</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+
+                <div class="song" data-src="songs/podcast8.mp3" data-title="Tax Free Wealth" data-singer="Tom Wheelwright" data-img="images/picture8.jpg">
+                    <img src="images/picture8.jpg" alt="" class="cover">
+                    <p class="Title">Tax Free Wealth</p>
+                    <p>Tom Wheelwright</p>
+                    <img src="images/play.png" alt="" class="play">
+                    <img src="images/heart.png" alt="" class="heart">   
+                    <img src="images/dots.png" alt="" class="dots">
+                </div>
+            </div>
+        </div>
+
+        <!-- Trending Singers -->
+        <div class="singerList">
+            <button class="back" id="back" onclick="homes()"><i class="fa-solid fa-arrow-left"></i></button>
+            <h2>Recommended Artist Stations</h2>
+            <div class="allSingers">
+                <div class="singer" data-picture="images/Singer1.jpg" data-artist="Arijit Singh">
+                    <img src="images/Singer1.jpg" alt="" class="singerImg">
+                    <p>Arijit Singh</p>
+                </div>
+                <div class="singer" data-picture="images/Singer2.jpg" data-artist="Jubin Nautiyal">
+                    <img src="images/Singer2.jpg" alt="" class="singerImg" data-artist="Jubin Nautiyal">
+                    <p>Jubin Nautiyal</p>  
+                </div>
+                <div class="singer" data-picture="images/Singer3.jpg" data-artist="Jubin Nautiyal">
+                    <img src="images/Singer3.jpg" alt="" class="singerImg">
+                    <p>Yo Yo Honey Singh</p>
+                </div>
+                <div class="singer" data-picture="images/Singer10.jpg" data-artist="Sherya Ghoshal">
+                    <img src="images/Singer10.jpg" alt="" class="singerImg" height="193px">
+                    <p>Shreya Ghoshal</p>
+                </div>
+                <div class="singer" data-picture="images/Singer5.jpg" data-artist="Udit Narayan">
+                    <img src="images/Singer5.jpg" alt="" class="singerImg">
+                    <p>Udit Narayan</p>
+                </div>
+                <div class="singer" data-picture="images/Singer6.jpg" data-artist="Kumar Sanu">
+                    <img src="images/Singer6.jpg" alt="" class="singerImg">
+                    <p>Kumar Sanu</p>
+                </div>
+                <div class="singer" data-picture="images/Singer7.jpg" data-artist="Lata Mangeshkar">
+                    <img src="images/Singer7.jpg" alt="" class="singerImg">
+                    <p>Lata Mangeshkar</p>
+                </div>
+                <div class="singer" data-picture="images/Singer8.jpg" data-artist="Vishal Mishra">
+                    <img src="images/Singer8.jpg" alt="" class="singerImg">
+                    <p>Vishal Mishra</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Artist Radio -->
+        <div class="artists-radio">
+            <span class="back" id="artistBack" onclick="homes()"><i class="fa-solid fa-arrow-left"></i></span>
+                <img id="artist-img" src="" alt="">
+            <div class="artist-details">
+                <div id="artistname">Artist Name 
+                    <!-- <span>Artist: 4,208,488 Listeners</span> -->
+                </div>
+                <span>Artist: 4,208,488 Listeners</span>
+                <div class="artist-btn">
+                    <button>Play</button>
+                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-solid fa-ellipsis"></i>                  
+                </div>
+            </div>
+        </div>
+ 
+        <!-- LogIn And SingUp -->
+        <div class="logIn" id="logIn"> 
+            <div class="form-container" id="login-container">
+                <h2>Login <span class="cut">x</span></h2>
+                <p>Log in to create playlists, build your library, get personalized recommendations & more!</p>
+                <form class="form" id="login-form">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                    <p>Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a></p>
+                    <button><img src="images/google.png" alt="">Continue With Google</button>                    
+                </form>
+                <button class="close" onclick="closeLogin()">Cancel</button>
+            </div>
+    
+            <div class="form-container hidden" id="signup-container">   
+                <h2>Sign Up</h2>
+                <p>Sign up to create playlists, build your library, get personalized recommendations & more!</p>
+                <form class="form" id="signup-form">
+                    <input type="text" placeholder="Username" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Sign Up</button>
+                    <p>Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
+                    <button><img src="images/google.png" alt="">Continue With Google</button>
+                </form>
+                <button class="close" onclick="closeLogin()">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Menu Chart -->
+         <div class="menu-chart" id="menuChart">
+            <div>Save to Library</div>
+            <div>Play Song Now</div>
+            <div>Add to Queue</div>
+            <div>Add to Playlist</div>
+            <div>More from Album</div>
+            <div class="arrow" id="shareBtn">Share <img src="images/arrow.png" alt=""></div> 
+         </div>
+ 
+        <!-- Share Options -->
+        <div class="share-options" id="shareOptions">
+            <div><img src="images/facebook.png" alt="" width="20px"> Facebook</div>
+            <div> <img src="images/X.png" alt="">Twitter</div>
+            <div><img src="images/wattsapp.png" alt=""> WhatsApp</div>  
+        </div>
+
+         <!-- LogIn Page -->
+          <div class="Login-page">
+            <img src="images/maglass.png" alt="" class="login-image">
+            <div class="logIn2" id="logIn2"> 
+                <div class="form-container2" id="login-container2"> 
+                    <h2>Login</h2>
+                    <p>Log in to create playlists, build your library, get personalized recommendations & more!</p>
+                    <form class="form" id="login-form2">
+                        <input type="email" placeholder="Email" required>
+                        <input type="password" placeholder="Password" required>
+                        <button type="submit">Login</button>
+                        <p>Don't have an account? <a href="#" onclick="toggleForm2()">Sign Up</a></p>
+                        <button><img src="images/google.png" alt="">Continue With Google</button>                    
+                    </form>
+                    <button class="close" onclick="closeLogin()">Cancel</button>
+                </div>
+        
+                <div class="form-container2 hidden2" id="signup-container2">    
+                    <h2>Sign Up</h2>
+                    <p>Sign up to create playlists, build your library, get personalized recommendations & more!</p>
+                    <form class="form" id="signup-form2">
+                        <input type="text" placeholder="Username" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="password" placeholder="Password" required> 
+                        <button type="submit">Sign Up</button>
+                        <p>Already have an account? <a href="#" onclick="toggleForm2()">Login</a></p>
+                        <button><img src="images/google.png" alt="">Continue With Google</button>
+                    </form>
+                    <button class="close" onclick="closeLogin()">Cancel</button>
+                </div>
+            </div>
+          </div>
+
+         <!-- Progress Bar -->
+        <div class="music-player">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <!-- <div class="timer2">
+                    <span class="time" id="currentTime">0:00</span> 
+                    <span class="time" id="duration">0:00</span>
+                </div> -->
+            </div>
+            <div class="song-details">
+                <div class="song-name">
+                    <img id="song-img" src="" alt="image">
+                    <div class="song-singer-details">
+                        <div id="song-title">No Song Selected</div>
+                        <div id="song-singer">No Singer</div>
+                    </div>
+                </div>
+
+                <div class="music-controls">
+                    <button id="prevBtn"><i class="fas fa-backward"></i></button>
+                    <button id="playPauseBtn"><i class="fas fa-play"></i></button>
+                    <button id="nextBtn"><i class="fas fa-forward"></i></button>
+                </div>
+                <div class="timer">
+                    <span class="time" id="currentTime">0:00</span> / <span class="time" id="duration">0:00</span>
+                    <div class="volume">
+                        <i class="fa-solid fa-ellipsis"></i>
+                        <i class="fa-solid fa-volume-high"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <span class="time" id="currentTime">0:00</span> / <span class="time" id="duration">0:00</span>
+            </div> -->
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footerText">
+                <h2>Top Artists</h2>
+                <p>Arijit Singh</p>
+                <p>Lata Mangeshkar</p>
+                <p>Diljit doosanjh</p>
+                <p>Armaan Malik</p>
+                <p>Kumar Sanu</p>
+                <p>Justin Bieber</p>
+                <p>Ed Sheeran</p>
+
+            </div>
+            <div class="footerText">
+                <h2>Browser</h2>
+                <p>Top Trending</p>
+                <p>New Releases</p>
+                <p>Weekly Top Songs</p>
+                <p>Best of 90s</p>
+                <p>Top Genres & Moods</p>
+                <p>Sad Songs</p>
+            </div>
+            <div class="footerText">
+                <h2>Languages</h2>
+                <p>Hindi Songs</p>
+                <p>Punjabi Songs</p>
+                <p>Haryanvi Songs</p>
+                <p>Tamil Songs</p>
+                <p>Kannada Songs</p>
+                <p>Gujrati Songs</p>
+                <p>Rajasthani Songs</p>
+                <!-- <p>Malayalam Songs</p>
+                <p>Bengali Songs</p> -->
+
+            </div>
+            <div class="footerText">
+                <h2>Top Charts</h2>
+                <p>Best of 90s</p>
+                <p>Best of Romance</p>
+                <p>Top Superhits</p>
+                <p>Most searched Songs</p>
+                <p>Trending Today</p>
+            </div>
+            <div class="footerText">
+                <h2>COMPANY</h2>
+                <p>About Us</p>
+                <p>Culture</p>
+                <p>Blogs</p>
+                <p>Advertise</p>
+                <p>Terms & Privacy</p>
+                <p>Help & Support</p>
+            </div>
+        </div>
+
+        <audio id="audioPlayer"></audio>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
