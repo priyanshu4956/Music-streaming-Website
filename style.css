@@ -286,9 +286,9 @@ body{
 .cover:hover{
     opacity: 0.5;
 }
-.heart:hover{
+/* .heart:hover{
     background: #000;
-}
+} */
 .Title{
     font-size: 18px;
     font-weight: bold;
@@ -738,6 +738,11 @@ p a {
     gap: 100px;
 }
 #artistBack{
+    display: flex;
+    position: absolute;
+    top: 140px;
+    left: 10px;
+    font-size: 35px;
     margin-bottom: auto;
 }
 #artist-img{
