@@ -152,12 +152,6 @@ async function searchMusic() {
     if (!query) return;     
     
     const response = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=song&limit=10`);
-    // const token = 'YOUR_SPOTIFY_ACCESS_TOKEN';
-    //         const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=10`, {
-    //             headers: {
-    //                 'Authorization': `Bearer ${token}`
-    //             }
-    //         });
 
     const data = await response.json();
     
@@ -177,6 +171,16 @@ async function searchMusic() {
             </audio>
         `;
         musicList.appendChild(musicItem);
+
+        const audio = musicItem.querySelector('audio');     // For play & pause
+          audio.addEventListener('play', function() {
+            const allAudios = document.querySelectorAll('audio');
+            allAudios.forEach(a => {
+              if (a !== audio) {
+                a.pause();
+              }
+            });
+          });
     });
 
     SongEl1.style.display = "none"
@@ -186,6 +190,7 @@ async function searchMusic() {
     SingerEl.style.display = "none"
     SliderContainer.style.display = "none";
     musicList.style.display = "flex"
+
 }
 
 
@@ -227,6 +232,8 @@ function homes() {
     document.getElementById("playlist").style.color = "black";
     document.getElementById("artist").style.color = "black";
     document.getElementById("login").style.color = "black";
+
+    window.location.reload();
 }
 
 function playlists() {
